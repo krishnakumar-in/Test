@@ -15,25 +15,29 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {'content-type': 'text/html'});
         res.write(homePage);
         res.end();
-    } else if(url === '/navbar-app/styles.css'){
-        res.writeHead(200, {'content-type': 'text/css'});
-        res.write(homeStyles);
+    } else if(url === '/index.html'){
+        res.writeHead(200, {'content-type': 'text/html'});
+        res.write(homePage);
         res.end();
-    } else if(url === '/navbar-app/browser-app.js'){
+    } else if(url === '/styles.css'){
+            res.writeHead(200, {'content-type': 'text/css'});
+            res.write(homeStyles);
+            res.end();
+    } else if(url === '/browser-app.js'){
         res.writeHead(200, {'content-type': 'text/javascript'});
         res.write(homeLogic);
         res.end();
-    } else if(url === '/navbar-app/logo.svg'){
-        res.writeHead(200, {'content-type': 'image/svg'});
+    } else if(url === '/logo.svg'){
+        res.writeHead(200, {'content-type': 'image/svg+xml'});
         res.write(homeLogo);
         res.end();
     } else if(url === '/about'){
         res.writeHead(200, {'content-type': 'text/html'});
-        res.write('<h1>About Page</h1>');
+        res.write("About Page");
         res.end();
     } else {
         res.writeHead(200, {'content-type': 'text/html'});
-        res.write('<h1>404, Resource Not Found</h1>');
+        res.write("404, Not Found");
         res.end();
     }
 });
