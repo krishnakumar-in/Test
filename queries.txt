@@ -1,0 +1,2 @@
+db.User.find({Gender: "Male"})
+db.User.find({Age: {$gt: 20})
