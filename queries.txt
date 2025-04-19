@@ -1,2 +1,13 @@
+To create database:
+use abc
+
+To create collections(tables):
+db.createCollection("User")
+
+To Add documents in User collection:
+db.User.insertMany([{ Name: "bcd", Age: 17, Gender: "Female", Profession: "Studing" }, { Name: "cde", Age: 21, Gender: "Male", Profession: "Business" }, { Name: "def", Age: 25, Gender: "Female", Profession: "Sales" }, { Name: "efg", Age: 20, Gender: "Female", Profession: "Job" }])
+
+
+8th point queries:
 db.User.find({Gender: "Male"})
-db.User.find({Age: {$gt: 20})
+db.User.find({Age: {$gt: 20}})
