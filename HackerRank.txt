@@ -1,0 +1,61 @@
+//"Climbing the LeaderBoard"
+
+function climbingLeaderboard(ranked, player) {
+const rankArr = [... new Set(ranked)];
+    const result = [];
+    for(let i=0;i<player.length;i++){
+        const playerScore = player[i];
+        const last = rankArr.at(-1);
+        if(last > playerScore){
+            result.push(rankArr.length + 1);
+            continue;
+        }
+        for (let j=0; j<rankArr.length;j++){
+            const playerRank = rankArr[j];
+            if(playerRank <= playerScore){
+                result.push(j+1);
+                break;
+            }
+        }
+    }
+    return result ;
+}
+
+//"Non-Divisible Subset"
+
+function nonDivisibleSubset(k, s) {
+    // Write your code here
+   let a = new Array(k).fill(0);
+    let result = 0;
+    for (let i = 0; i < s.length; i++) {
+        a[s[i] % k] += 1;
+    }
+    for (let i = 0; i < Math.floor(k / 2) + 1; i++) {
+        if (i === 0 || i == k - i) {
+        result += Math.min(a[i], 1);
+        } else {
+        result += Math.max(a[i], a[k - i]);
+        }
+    }
+    return result;
+}
+
+//"Bigger is Greater"
+function biggerIsGreater(w) {
+    for (let i = w.length - 2; i >= 0; i--) {
+        if (w[i] < w[i + 1]) {
+            let c = w[i];
+            const part1 = w.slice(0, i);
+            const part2 = w.slice(i + 1).split('').reverse();
+
+            for (let j = 0; j < part2.length; j++) {
+                if (part2[j] > c) {
+                    ([c, part2[j]] = [part2[j], c]);
+                    return part1 + c + part2.join('');
+                    //return part2[j];
+                }
+            }
+        }
+    }
+    return 'no answer';
+}
